@@ -1,4 +1,6 @@
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 /**
  * Main application for the Data Analysis Mini‑Project.
@@ -15,34 +17,55 @@ import java.io.File;
  */
 public class App {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
 
         // TODO: Update this with your CSV file path
-        File file = new File("data/your_dataset.csv");
+        File file = new File("WorldIndicators2000.csv");
 
         // TODO: Create an array of Data objects to store data
-
+            Data[] dataList = new Data[2704];
 
         // TODO: Read file using Scanner
+        Scanner scan = new Scanner(file);
         // - Skip header if needed
+        scan.nextLine(); // Skip header line
         // - Loop through rows
-        // - Split each line by commas
-        // - Convert text to numbers when needed
-        // - Create new Data objects
+        
+        int index = 0;
+        while (scan.hasNextLine() && index < dataList.length) {
+            String line = scan.nextLine();
+            
+            String[] parts = line.split(",");
+            
+            String country = parts[0];
+
+            String year = parts[1];
+
+            String carbonEmissions = parts[4];
+
+            // - Create new Data objects
+            dataList[index] = new Data(country, year, carbonEmissions);
+
+            index++;
+        }
         // - Add to your array
+        scan.close();
 
 
         // TODO: Call your analysis methods
         // Example:
         // double maxValue = findMaxValue(dataList);
         // double average = computeAverageValue(dataList);
-
+            Data highestEmissionsData = Data.findHighestEmissions(dataList);
+            
 
         // TODO: Print insights
         // - Number of rows loaded
         // - Min, max, average, or any other findings
         // - Final answer to your guiding question
-
+        System.out.println("Country with the highest carbon emissions: " + highestEmissionsData.getCountry());
+        System.out.println("Year: " + highestEmissionsData.getYear());
+        System.out.println("Carbon Emissions: " + highestEmissionsData.getCarbonEmissions());
 
         // OPTIONAL TODO:
         // Add user interaction:
