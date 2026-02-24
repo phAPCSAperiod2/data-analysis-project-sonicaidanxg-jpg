@@ -1,13 +1,9 @@
 /**
- * Represents one row from your dataset.
+ * Represents one row from the dataset containing a country, year, and
+ * carbon emissions value. Instances of this class hold the raw CSV fields
+ * and provide simple accessors and utility methods for analysis.
  *
- * TODO:
- *  - Rename the class to match your dataset (e.g., Pokemon, StateData, CountryStat)
- *  - Add at least 3 private attributes based on your CSV columns
- *  - Write a constructor that initializes all attributes
- *  - Add getter methods for the attributes you need in your analysis
- *  - Override toString() to display the object's data
- *  - Add Javadoc comments for the class and all methods
+ * @author Aidan Manzanares
  */
 public class Data {
 
@@ -20,6 +16,13 @@ public class Data {
 
 
     // TODO: Create a constructor that takes all attributes as parameters
+    /**
+     * Constructs a new Data record.
+     *
+     * @param country the country name for this record
+     * @param year the year for this record (as a string)
+     * @param carbonEmissions the carbon emissions value for this record (as a string)
+     */
     public Data(String country, String year, String carbonEmissions) {
         this.country = country;
         this.year = year;
@@ -27,14 +30,31 @@ public class Data {
     }
 
     // TODO: Add getters for attributes you need
+    /**
+     * Returns the country name for this record.
+     *
+     * @return the country name, or null if not set
+     */
     public String getCountry() {
         return country;
     }
 
+    /**
+     * Returns the year for this record.
+     *
+     * @return the year as a string, or null if not set
+     */
     public String getYear() {
         return year;
     }
 
+    /**
+     * Returns the carbon emissions value for this record.
+     * The value is stored as a string; callers should parse it as a number
+     * when numeric operations are required.
+     *
+     * @return the carbon emissions value as a string, or null if not set
+     */
     public String getCarbonEmissions() {
         return carbonEmissions;
     }
@@ -42,10 +62,14 @@ public class Data {
     // TODO: Add other data analysis methods
 
     /**
-     * Finds the Data record with the highest carbon emissions from a list of data records.
+     * Finds the {@code Data} record with the highest carbon emissions from an array
+     * of records. Non-numeric or empty emission values are ignored. If multiple
+     * records share the same highest numeric value, the first encountered is
+     * returned.
      *
-     * @param dataArray an array of Data objects containing country and emission information
-     * @return the Data object with the highest carbon emissions, or null if array is empty
+     * @param dataArray an array of {@code Data} objects containing country and emission information
+     * @return the {@code Data} object with the highest carbon emissions, or {@code null} if the array is null or empty
+     * @author Aidan Manzanares
      */
     public static Data findHighestEmissions(Data[] dataArray) {
         if (dataArray == null || dataArray.length == 0) {
@@ -85,20 +109,18 @@ public class Data {
         return highestEmissionData;
     }
 
-    // TODO: Override toString() to return a readable representation of your object
+    /**
+     * Returns a readable string representation of this {@code Data} object.
+     *
+     * @return a string containing the country, year, and carbon emissions values
+     */
     @Override
     public String toString() {
-        
-    
         return "Data{" +
-    
-        "country='" + country + '\'' +
-    
-        ", year=" + year +
-    
-        ", carbonEmissions=" + carbonEmissions +
-    
-        '}';
+                "country='" + country + '\'' +
+                ", year=" + year +
+                ", carbonEmissions=" + carbonEmissions +
+                '}';
     }
 
 }
