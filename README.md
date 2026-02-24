@@ -70,8 +70,8 @@ UML_Diagram.png (or UML_Diagram.pdf)
 **Source / Link:**  
 
 **What this dataset contains (2–3 sentences):**  
-____________________________________________________________________  
-____________________________________________________________________  
+
+Information about different countries. Goes from year 2000 to 2012.
 
 ---
 
@@ -80,8 +80,8 @@ ____________________________________________________________________
 Your guiding question should be something you can answer using your dataset.
 
 **My guiding question:**  
-____________________________________________________________________  
-____________________________________________________________________  
+
+Which country had the highest carbon emissions and in which year?
 
 Examples:
 
@@ -126,9 +126,9 @@ In `Main.java`, you must:
 
 | Attribute Name | CSV Column Name | Column Index # | Notes |
 |----------------|------------------|----------------|-------|
-|                |                  |                |       |
-|                |                  |                |       |
-|                |                  |                |       |
+|   Country      |        Country   |       0        |       |
+|      Year      |       Year       |       1        |       |
+|   Emissions    |  CO2 Emissions   |       4        |       |
 
 ---
 
@@ -145,8 +145,8 @@ You must write **at least two algorithms** to analyze your dataset.
 
 **Algorithms I will implement:**
 
-1. __________________________________________  
-2. __________________________________________  
+1. Maximum value of attribute.  
+2. Filter by category.  
 
 Optional extras:  
 - Sorting  
@@ -165,13 +165,10 @@ After analyzing your objects, print:
 - ✔ A clear answer to your guiding question  
 
 **My findings:**  
-____________________________________________________________________  
-____________________________________________________________________  
-____________________________________________________________________  
+2705 rows were loaded. China had the highest carbon emissions in 2010. 
 
 **My answer to the guiding question:**  
-____________________________________________________________________  
-____________________________________________________________________  
+China had the highest carbon emissions in 2010.
 
 ---
 
@@ -218,10 +215,8 @@ Write a short reflection (3–5 sentences):
 - How trustworthy are your insights?
 
 **My reflection:**  
-____________________________________________________________________  
-____________________________________________________________________  
-____________________________________________________________________  
-____________________________________________________________________  
+I had trouble converting the numbers from text to integers when trying to compare values. My dataset could be inaccurate because
+it only goes up to 2012. Inaccurate data wouldn't reflect which country has the highest carbon emissions today.  
 
 ---
 
